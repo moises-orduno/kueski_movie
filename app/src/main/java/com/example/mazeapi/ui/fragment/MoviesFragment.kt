@@ -170,6 +170,9 @@ class MoviesFragment : Fragment(), MovieViewAdapter.OnItemClickListener {
         moviesViewModel.isProgress.observe(viewLifecycleOwner) {
             _binding?.progressBar?.isVisible = it
         }
+
+        // Get user preference to load movies
+        moviesViewModel.getUserSharedPreferences()
     }
 
     override fun onDestroyView() {

@@ -62,11 +62,12 @@ class MoviesViewModelTest {
 
     @Test
     fun `getAllMoviesByPopular success`() = runTest {
+
         // Prepare mock response
-        val mockResponse = MovieResponse(results = listOf()
+        val mockResponse = MovieResponse(results = listOf())
 
         // When getAllMovies is called, return mockResponse
-        `when`(scheduleRepository.getAllMovies(page = 1))
+        `when`(scheduleRepository.getAllMovies(page = 1)).thenReturn(mockResponse)
 
         // Call the function
         viewModel.getAllMoviesByPopular(1)
